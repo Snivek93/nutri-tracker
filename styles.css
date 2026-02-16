@@ -1,187 +1,203 @@
-/* ===== RESET ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto;
 }
 
-/* ===== FONDO GENERAL ===== */
-body {
-  background: linear-gradient(180deg, #dff5ec, #c8eadb);
-  padding-bottom: 120px;
+body{
+background:linear-gradient(180deg,#dff5ec,#c8eadb);
+padding-bottom:260px;
 }
 
-/* ===== HEADER ===== */
-.header-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.header-image{
+width:100%;
+height:180px;
+object-fit:cover;
 }
 
-h1 {
-  text-align: center;
-  color: #1f5c45;
-  margin: 15px 0;
-  font-size: 22px;
+h1{
+text-align:center;
+margin:15px 0;
+font-size:22px;
 }
 
-/* ===== CARD TIEMPO COMIDA ===== */
-.meal {
-  background: white;
-  margin: 12px;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  overflow: hidden;
+.day-nav{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:15px;
 }
 
-/* ===== HEADER DEL ACORDEÓN ===== */
-.meal-header {
-  padding: 14px 16px;
-  font-weight: 600;
-  font-size: 16px;
-  color: #1f5c45;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
+.day-nav button{
+background:#1f8f6b;
+color:white;
+border:none;
+width:36px;
+height:36px;
+border-radius:50%;
+cursor:pointer;
 }
 
-.meal-header span {
-  font-size: 14px;
-  font-weight: 500;
-  color: #666;
+.meal{
+background:white;
+margin:12px;
+border-radius:20px;
+box-shadow:0 8px 22px rgba(0,0,0,0.08);
+overflow:hidden;
 }
 
-/* ===== CONTENIDO ===== */
-.meal-content {
-  padding: 10px 16px 16px 16px;
-  display: none;
+.meal-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px;
+font-weight:600;
+cursor:pointer;
 }
 
-/* Mostrar cuando activo */
-.meal.active .meal-content {
-  display: block;
+.meal-left{
+font-size:16px;
 }
 
-/* ===== ITEM MACRO ===== */
-.macro-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  font-size: 14px;
+.meal-right{
+font-size:14px;
+text-align:right;
 }
 
-/* ===== GRUPOS POR COLOR ===== */
-.carbs { color: #d4a017; }      /* Amarillo */
-.protein { color: #1976d2; }    /* Azul */
-.fat { color: #e67e22; }        /* Naranja */
-
-/* ===== CONTROLES + / - ===== */
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.meal-macros{
+font-size:12px;
+opacity:0.7;
 }
 
-button {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: none;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
+.meal-content{
+max-height:0;
+overflow:hidden;
+transition:max-height 0.3s ease;
+padding:0 16px;
 }
 
-.minus {
-  background: #eee;
+.meal.active .meal-content{
+max-height:500px;
+padding:12px 16px 16px 16px;
 }
 
-.plus {
-  background: #1f8f6b;
-  color: white;
+.macro-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
 }
 
-.count {
-  min-width: 20px;
-  text-align: center;
+.controls{
+display:flex;
+gap:6px;
+align-items:center;
 }
 
-/* ===== RESUMEN FIJO INFERIOR ===== */
-.summary {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  padding: 12px 16px;
-  box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+.controls button{
+width:26px;
+height:26px;
+border-radius:50%;
+border:none;
+background:#1f8f6b;
+color:white;
+cursor:pointer;
 }
 
-.summary h3 {
-  font-size: 14px;
-  margin-bottom: 6px;
-  color: #1f5c45;
+.chart-card{
+background:white;
+margin:12px;
+padding:16px;
+border-radius:20px;
+box-shadow:0 8px 22px rgba(0,0,0,0.08);
+height:220px;
 }
 
-/* ===== BARRA PROGRESO ===== */
-.progress-container {
-  background: #eee;
-  border-radius: 20px;
-  height: 14px;
-  overflow: hidden;
-  margin: 6px 0;
+#weeklyChart{
+width:100% !important;
+height:100% !important;
 }
 
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #1f8f6b, #27ae60);
-  transition: width 0.3s ease;
+.summary{
+position:fixed;
+bottom:0;
+width:100%;
+background:white;
+padding:20px;
+border-top-left-radius:22px;
+border-top-right-radius:22px;
+box-shadow:0 -6px 20px rgba(0,0,0,0.12);
 }
 
-/* ===== META EDITABLE ===== */
-.goal-input {
-  width: 90px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 4px;
-  font-size: 12px;
+.kcal-highlight{
+text-align:center;
+margin-bottom:8px;
 }
 
-/* ===== MODO OSCURO AUTOMÁTICO ===== */
-@media (prefers-color-scheme: dark) {
+#totalKcal{
+font-size:48px;
+font-weight:700;
+}
 
-  body {
-    background: #1c1c1c;
-  }
+.macro-summary{
+display:flex;
+justify-content:space-between;
+margin-top:12px;
+}
 
-  .meal {
-    background: #2a2a2a;
-    box-shadow: none;
-  }
+.macro-box{
+flex:1;
+}
 
-  .meal-header {
-    color: #9be7c4;
-  }
+.macro-box.left{
+text-align:left;
+}
 
-  .summary {
-    background: #2a2a2a;
-  }
+.macro-box.center{
+text-align:center;
+}
 
-  .progress-container {
-    background: #444;
-  }
+.macro-box.right{
+text-align:right;
+}
 
-  .goal-input {
-    background: #444;
-    color: white;
-    border: none;
-  }
+.macro-title{
+font-size:13px;
+opacity:0.8;
+}
 
+.macro-value{
+font-size:18px;
+font-weight:600;
+margin-top:2px;
+}
+
+.progress-container{
+background:#eee;
+border-radius:20px;
+height:16px;
+margin-top:8px;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#1f8f6b,#27ae60);
+border-radius:20px;
+transition:0.4s ease;
+}
+
+.goal-input{
+margin-top:8px;
+padding:6px;
+width:90px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+@media (prefers-color-scheme:dark){
+body{background:#121212;color:white;}
+.meal,.chart-card,.summary{background:#1e1e1e;}
+.progress-container{background:#333;}
 }
 

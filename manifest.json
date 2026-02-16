@@ -1,10 +1,11 @@
 {
   "name": "Vida Saludable",
   "short_name": "VidaFit",
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#dff5ec",
   "theme_color": "#1f8f6b",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
